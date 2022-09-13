@@ -4,19 +4,18 @@
 #pragma once
 
 #include "Button.h"
-#include "Led.h"
+#include "Controller.h"
 
 class Listener
 {
-public:
-    Listener(Button *button, Led *led);
-    ~Listener();
-    void checkEvent();
-
 private:
     Button *powerButton;
-    Led *light;
+    Controller *controller;
 
+public:
+    Listener(Button *button, Controller *control);
+    ~Listener();
+    void checkEvent();
 };
 
 #endif
