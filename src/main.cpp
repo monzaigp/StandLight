@@ -4,19 +4,22 @@
 #include "Led.h"
 #include "Listener.h"
 #include "Controller.h"
+#include "View.h"
 
 int main()
 {
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Hello World!" << std::endl;
     
-    Button button1(27); //의미부여
+    Button button1(27);
     Led led1(25);
-    Controller control(&led1);
-    Listener listener(&button1, &control);     // Class: Listener, Instance : listener
-
+    View view(&led1);
+    Controller control(&view);
+    Listener listener(&button1, &control);
+    
     while (1)
     {
         listener.checkEvent();
+        view.lightView();
         delay(50);
     }
 

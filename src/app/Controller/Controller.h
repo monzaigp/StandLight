@@ -1,21 +1,17 @@
 #ifndef __CONTROLLER_H__
 #define __CONTROLLER_H__
 
-#pragma once
-
 #include <string>
-#include "Led.h"
-
-enum {LIGHT_OFF, LIGHT_ON};
+#include "View.h"
 
 class Controller
 {
 private:
     int lightState;
-    Led *light;
+    View *view;
 
 public:
-    Controller(Led *led);
+    Controller(View *viewer);
     virtual ~Controller();
     void updateEvent(std::string strBtn);
 };
